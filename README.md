@@ -96,6 +96,8 @@ http://localhost:3000
 4. Copy or download the processed text.
 
 ---
+<img width="1512" height="663" alt="Screenshot 2026-07-15 181152" src="https://github.com/user-attachments/assets/79b56fba-9320-4162-8039-0d2db9a763a0" />
+
 
 ## 🌟 Future Enhancements
 
