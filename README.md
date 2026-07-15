@@ -138,7 +138,7 @@ This project is licensed under the MIT License.
 **Jagadish G**
 
 - GitHub: https://github.com/Jagadish334
-- LinkedIn: https://linkedin.com/in/Jagadeesh Godha
+- LinkedIn: https://linkedin.com/in/Jagadeesh_Godha
 
 ---
 
