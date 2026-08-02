@@ -8,20 +8,20 @@ export default function TextArea(props) {
     let newText = Text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to uppercase", "success");
-    document.title = "Textutils-Uppercase";
+    // document.title = "Textutils-Uppercase";
   };
 
   const convertlow = () => {
     let newText = Text.toLowerCase();
     setText(newText);
     props.showAlert("Converted to lowercase", "success");
-    document.title = "Textutils-Lowercase";
+    // document.title = "Textutils-Lowercase";
   };
 
   const copyText = () => {
     navigator.clipboard.writeText(Text);
     props.showAlert("Text copied successfully", "success");
-    document.title = "Textutils-Copy";
+    // document.title = "Textutils-Copy";
   };
 
   const downloadText = () => {
@@ -36,7 +36,7 @@ export default function TextArea(props) {
     document.body.removeChild(element);
 
     props.showAlert("Text downloaded successfully", "success");
-    document.title = "Textutils-Download";
+    // document.title = "Textutils-Download";
   };
 
   const captilize = () => {
@@ -48,7 +48,7 @@ export default function TextArea(props) {
 
     setText(newText);
     props.showAlert("Text capitalized successfully", "success");
-    document.title = "Textutils-Capitalize";
+    // document.title = "Textutils-Capitalize";
   };
 
   const replace = () => {
@@ -59,7 +59,7 @@ export default function TextArea(props) {
       const newText = Text.replaceAll(oldWord, newWord);
       setText(newText);
       props.showAlert("Text replaced successfully", "success");
-      document.title = "Textutils-Replace";
+      // document.title = "Textutils-Replace";
     }
   };
 
@@ -68,7 +68,7 @@ export default function TextArea(props) {
     const newText = Text.split("").reverse().join("");
     setText(newText);
     props.showAlert("Text reversed successfully", "success");
-    document.title = "Textutils-Reverse";
+    // document.title = "Textutils-Reverse";
   };
 
   // Remove Extra Spaces
@@ -76,14 +76,14 @@ export default function TextArea(props) {
     const newText = Text.split(/\s+/).join(" ").trim();
     setText(newText);
     props.showAlert("Extra spaces removed successfully", "success");
-    document.title = "Textutils-RemoveSpaces";
+    // document.title = "Textutils-RemoveSpaces";
   };
 
   // Clear Text
   const clearText = () => {
     setText("");
     props.showAlert("Text cleared successfully", "success");
-    document.title = "Textutils-Clear";
+    // document.title = "Textutils-Clear";
   };
 
   const onchangefunc = (event) => {
@@ -110,39 +110,39 @@ export default function TextArea(props) {
           rows="8"
         ></textarea>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={convertup}>
+        <button disabled ={Text.length===0} className="btn btn-primary mx-2 my-2" onClick={convertup}>
           Convert to Uppercase
         </button>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={convertlow}>
+        <button disabled ={Text.length===0} className="btn btn-primary mx-2 my-2" onClick={convertlow}>
           Convert to Lowercase
         </button>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={copyText}>
+        <button disabled ={Text.length===0} className="btn btn-primary mx-2 my-2" onClick={copyText}>
           Copy
         </button>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={downloadText}>
+        <button disabled ={Text.length===0} className="btn btn-primary mx-2 my-2" onClick={downloadText}>
           Download
         </button>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={captilize}>
+        <button disabled ={Text.length===0} className="btn btn-primary mx-2 my-2" onClick={captilize}>
           Capitalize
         </button>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={replace}>
+        <button disabled ={Text.length===0} className="btn btn-primary mx-2 my-2" onClick={replace}>
           Replace
         </button>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={reverseText}>
+        <button disabled ={Text.length===0} className="btn btn-primary mx-2 my-2" onClick={reverseText}>
           Reverse
         </button>
 
-        <button className="btn btn-primary mx-2 my-2" onClick={removeSpaces}>
+        <button disabled ={Text.length===0} className="btn btn-primary mx-2 my-2" onClick={removeSpaces}>
           Remove Spaces
         </button>
 
-        <button className="btn btn-danger mx-2 my-2" onClick={clearText}>
+        <button disabled ={Text.length===0} className="btn btn-danger mx-2 my-2" onClick={clearText}>
           Clear
         </button>
       </div>
@@ -154,16 +154,11 @@ export default function TextArea(props) {
         <h2>Your Text Summary</h2>
 
         <p>
-          {
-            Text.split(/\s+/).filter((element) => element.length !== 0).length
-          }{" "}
-          words and {Text.length} characters
+         {Text.split(/\s+/).filter((element)=>{return element.length!==0}).length}  words and {Text.length} characters
         </p>
 
         <p>
-          {0.008 *
-            Text.split(/\s+/).filter((element) => element.length !== 0).length}
-          {" "}Minutes to read
+          {0.008 *Text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to read
         </p>
 
         <h2>Preview</h2>
